@@ -53,6 +53,7 @@ router.delete('/:id', async (req, res) => {
   // delete a category by its `id` value
   try{
     const deleteCategory = await Category.delete({where: {id: req.params.id}});
+    res.status(200).json(deleteCategory);
   }
   catch(err){
     res.status(500).json({message: "Cannot be deleted.."});
